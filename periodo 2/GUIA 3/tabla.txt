@@ -1,0 +1,7 @@
+Archivo		Número de elementos	Tiempo transcurrido (segs.)
+2000int.txt 	2,000			0
+4000int.txt 	4,000			0
+8000int.txt 	8,000			0
+16000int.txt 	16,000			0
+32000int.txt 	32,000			0.001
+64000int.txt 	64,000			0.004
