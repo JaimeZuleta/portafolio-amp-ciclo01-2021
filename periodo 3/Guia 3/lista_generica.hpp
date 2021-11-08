@@ -133,53 +133,58 @@ void Lista<TIPODATO>::adjuntar(TIPODATO item){
 template <typename TIPODATO>
 void Lista<TIPODATO>::obtener(int indice){
 	
+	if (indice < 0 || indice >= this->cuenta) throw "Indice fuera de rango";
+	if (this->estaVacia()) throw "No se puede recuperar elementos de una lista vacia";
+	
+	cout<< "Recuperando elementos en el indice" << indice <<endl;
+	return this->items[indice];
 }
 
 
+template <typename TIPODATO>
+bool lista<TIPODATO>::contiene(TIPODATO item){
+    for (int i =0; i< this->cuenta;i++){
+        cout<< " Recorriendo elementos con indice " << i << endl;
+        if(this->items[i] == item)
+            return true;
+    }
+    
+    return false;
+}
 
 
+template <typename TIPODATO>
+TIPODATO lista<TIPODATO>::remover(int indice){
+    
+    if(this->estaVacia())throw " No se puede remover elementos de una lista vacia ";
+    if(indice < 0 || indice >= this->cuenta) throw " Indice fuera de rango ";
+    
+    cout << " Removiendo el elemeto con indice " << indice << "..." << endl;
+    
+    TIPODATO valor = this->items[indice];
+    for(int i = indice; i < cuenta -1; i++){
+        cout << " Desplazando elemento " << items[i] << " del indice ";
+        cout << (i+1) << " al indice " << i << endl;
+        this->items[i] = this->items[i+1];
+    }
+    
+    
+    cout << " Reduciendo la cuenta de elementos " << endl;
+    this->cuenta--;
+    return valor;
+}
 
+template <typename TIPODATO>
+string lista<TIPODATO>::comoCadena(){
+    ostringstream s;
+    s <<"[";
+    for (int i = 0; i<(this->cuenta);i++){
+        s<< this->items[i];
+        if(i <this->cuenta-1)
+            s<<", ";
+    }
+    s<<"]";
+    return s.str();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#endif
