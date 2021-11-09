@@ -1,4 +1,4 @@
-#include <iostream>
+#include "lista_generica.hpp"
 #include <string>
 
 template <typename TIPODATO>
@@ -35,6 +35,6 @@ bool Cola<TIPODATO>::estaColaVacia(){
 }
 
 template<typename TIPODATO>
-string Cola>TIPODATO>::colaComoCadena(){
+string Cola<TIPODATO>::colaComoCadena(){
     return this->comoCadena();
 }

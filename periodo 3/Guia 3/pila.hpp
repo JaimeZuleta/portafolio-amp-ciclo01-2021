@@ -1,8 +1,8 @@
-#include "lista_gerencia.hpp"
+#include "lista_generica.hpp"
 #include <string>
 
 template <typename TIPODATO>
-clas Pila: private Lista<TIPODATO>{
+class Pila: private Lista<TIPODATO>{
     public:
     
         Pila();

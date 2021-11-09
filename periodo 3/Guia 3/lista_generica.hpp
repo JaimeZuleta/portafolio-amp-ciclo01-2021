@@ -25,7 +25,7 @@ class Lista{
 		TIPODATO *items;
 		void agrandar();
 	public:
-		lista(int capacidad);
+		Lista(int capacidad);
 		Lista();
 		~Lista();
 		Lista(const Lista &otra);
@@ -40,9 +40,9 @@ class Lista{
 };
 
 
-template <typename TIPODATO>
+template<typename TIPODATO>
 Lista<TIPODATO>::Lista(int capacidad){
-	cout<< "creando una lista vacia..." >> endl;
+	cout<< "creando una lista vacia..." << endl;
 	this->cuenta=0;
 	this->capacidad=capacidad;
 	this->items = new TIPODATO[capacidad];
@@ -90,8 +90,8 @@ void Lista<TIPODATO>::agrandar(){
 	cout << "Dupñicando el tamanio de la lista..." << endl;
 	TIPODATO *temp =this->items;
 	this->capacidad *= 2;
-	this->items = new TIPODATOS[capacidad];
-	for(int i = o ; i< cuenta; i++)
+	this->items = new TIPODATO[capacidad];
+	for(int i = 0 ; i< cuenta; i++)
 		this->items[i]=temp[i];
 	delete[] temp;
 	cout << "La lista tiene capaciadad para " << this->capacidad << " Elementos" << endl;
@@ -111,7 +111,7 @@ void Lista<TIPODATO>::insertar(int indice, TIPODATO item){
 	for(int i= cuenta -1; i  >= indice; i--){
 		cout << " Desplazando elemento "<< items[i] << " del indice ";
 		cout << i << " al indice " << (i+1) << endl;
-		this->items[i+1] = this->adjuntar(items[i]);
+		this->items[i+1] = this->items[i];
 	}	
 	
 	
@@ -131,7 +131,7 @@ void Lista<TIPODATO>::adjuntar(TIPODATO item){
 
 
 template <typename TIPODATO>
-void Lista<TIPODATO>::obtener(int indice){
+TIPODATO Lista<TIPODATO>::obtener(int indice){
 	
 	if (indice < 0 || indice >= this->cuenta) throw "Indice fuera de rango";
 	if (this->estaVacia()) throw "No se puede recuperar elementos de una lista vacia";
@@ -142,7 +142,7 @@ void Lista<TIPODATO>::obtener(int indice){
 
 
 template <typename TIPODATO>
-bool lista<TIPODATO>::contiene(TIPODATO item){
+bool Lista<TIPODATO>::contiene(TIPODATO item){
     for (int i =0; i< this->cuenta;i++){
         cout<< " Recorriendo elementos con indice " << i << endl;
         if(this->items[i] == item)
@@ -154,7 +154,7 @@ bool lista<TIPODATO>::contiene(TIPODATO item){
 
 
 template <typename TIPODATO>
-TIPODATO lista<TIPODATO>::remover(int indice){
+TIPODATO Lista<TIPODATO>::remover(int indice){
     
     if(this->estaVacia())throw " No se puede remover elementos de una lista vacia ";
     if(indice < 0 || indice >= this->cuenta) throw " Indice fuera de rango ";
@@ -175,7 +175,7 @@ TIPODATO lista<TIPODATO>::remover(int indice){
 }
 
 template <typename TIPODATO>
-string lista<TIPODATO>::comoCadena(){
+string Lista<TIPODATO>::comoCadena(){
     ostringstream s;
     s <<"[";
     for (int i = 0; i<(this->cuenta);i++){
