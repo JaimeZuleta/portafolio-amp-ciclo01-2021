@@ -4,7 +4,7 @@
 
 
 
-#include "lista_gerencia.hpp"
+#include "lista_generica.hpp"
 #include <iostream>
 
 using std::cin;
@@ -43,14 +43,14 @@ int main(){
     cout << miLista.remover(2) << endl << endl;
     cout << " La lista es: " << miLista.comoCadena() << endl << endl;
     
-    cout << miLista.adjuntar(5) << endl << endl;
+    miLista.adjuntar(5) ;
     cout << " La lista es: " << miLista.comoCadena() << endl << endl;
     
     
-    lista<double> miListaDouble;
+    Lista<double> miListaDouble;
     cout<< " La lista es: " << miListaDouble.comoCadena() << endl << endl;
     
-    lista<double> miListaDouble2 = miListaDouble;
+    Lista<double> miListaDouble2 = miListaDouble;
     cout << endl;
     
     cout << (miListaDouble.estaVacia() ? "true":"false") << endl <<endl;
@@ -58,7 +58,7 @@ int main(){
     miListaDouble.adjuntar(100.1);
     cout << " L lista es: " << miListaDouble.comoCadena() << endl <<endl;
     
-    miListaDouble.adjuntar(105.1);
+    miListaDouble.adjuntar(105.3);
     cout << " L lista es: " << miListaDouble.comoCadena() << endl <<endl;
     
     miListaDouble.adjuntar(94.5);
