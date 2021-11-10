@@ -1,9 +1,3 @@
-
-
-
-
-
-
 #include "lista_generica.hpp"
 #include <iostream>
 
