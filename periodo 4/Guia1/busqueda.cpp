@@ -1,4 +1,4 @@
-#include "EDD0GV01SS_ZC110417_Arboles_Binario_Busqueda.h"
+#include "arboles.h"
 #include <iostream>
 #include <vector>
 #include <string>
